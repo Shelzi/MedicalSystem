@@ -10,10 +10,7 @@ import com.epam.medicalsystem.model.factory.impl.PatientFactory;
 import com.epam.medicalsystem.model.service.PatientService;
 import com.epam.medicalsystem.util.MessageManager;
 
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -61,7 +58,7 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public List<Patient> findByFields(Map<String, String> fields) throws ServiceException {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override

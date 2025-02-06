@@ -18,16 +18,16 @@ public class SqlQuery {
 
     public static final String SQL_INSERT_TOWN = "INSERT INTO cities(city) VALUES (?);";
 
-    public static final String SQL_FIND_TOWN_ID_BY_NAME = "SELECT cityId FROM cities WHERE city = ?;";
+    public static final String SQL_FIND_TOWN_ID_BY_NAME = "SELECT city_id FROM cities WHERE city = ?;";
 
     public static final String SQL_CHECK_CARD_FOR_EXISTENCE = "SELECT patientId FROM patients" +
             " WHERE firstName = ? AND lastName = ? AND middleName = ? AND birthday = ?;";
 
-    public static final String SQL_FIND_ALL_CARDS = "SELECT * FROM patients JOIN cities ON homeTownId_fk = cityId;";
+    public static final String SQL_FIND_ALL_CARDS = "SELECT * FROM patients JOIN cities ON homeTownId_fk = city_id;";
 
-    public static final String SQL_FIND_VISITS_BY_PATIENT_ID = "SELECT * FROM visits JOIN patients ON patientId_fk = patientId WHERE patientId = ? ORDER BY visitDate;";
+    public static final String SQL_FIND_VISITS_BY_PATIENT_ID = "SELECT * FROM visits JOIN patients ON patientId_fk = patientId WHERE patientId = ? ORDER BY visitTime;";
 
-    public static final String SQL_FIND_PATIENT_BY_ID = "SELECT * FROM patients JOIN cities ON homeTownId_fk = cityId WHERE patientId = ?;";
+    public static final String SQL_FIND_PATIENT_BY_ID = "SELECT * FROM patients JOIN cities ON homeTownId_fk = city_id WHERE patientId = ?;";
 
     public static final String SQL_FIND_ALL_PROCEDURES = "SELECT * FROM procedures;";
 

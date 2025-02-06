@@ -1,5 +1,6 @@
 package com.epam.medicalsystem.controller.command.impl;
 
+import com.epam.medicalsystem.controller.atribute.PagePath;
 import com.epam.medicalsystem.controller.atribute.RequestParameter;
 import com.epam.medicalsystem.controller.atribute.SessionAttribute;
 import com.epam.medicalsystem.controller.command.ActionCommand;
@@ -33,14 +34,16 @@ public class CreateVisitCommand implements ActionCommand {
         requestFields.put(RequestParameter.MEDICINES, medicines);
         requestFields.put(RequestParameter.NEXT_DATE_VISIT, nextVisitDay);
 
-         VisitService visitService = VisitServiceImpl.getInstance();
+        VisitService visitService = VisitServiceImpl.getInstance();
+
+        CommandResult result = new CommandResult(PagePath.MAIN, CommandResult.Type.REDIRECT);
         try {
             if (visitService.create(requestFields)) {
-
             }
+            result = new CommandResult(PagePath.PATIENTS, CommandResult.Type.FORWARD);
         } catch (ServiceException e) {
             throw new CommandException(e);
         }
-        return null;
+        return result;
     }
 }
